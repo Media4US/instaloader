@@ -12,6 +12,7 @@ pefile = "*"
 pywin32-ctypes = "*"
 psutil = "*"
 typing-extensions = "*"
+types-requests = "*"
 
 [packages]
 requests = "*"

@@ -32,8 +32,10 @@ def copy_session(session: requests.Session, request_timeout: Optional[float] = N
 
 
 def default_user_agent() -> str:
-    return 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ' \
-           '(KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36'
+    return f'Mozilla/5.0 (X11; Linux x86_64; Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.{random.randint(0, 9999)} Safari/537.{random.randint(0, 99)} Edge/91.0.864.{random.randint(0, 9999)}'
+
+    # return 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ' \
+    #        '(KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36'
 
 
 class InstaloaderContext:
@@ -149,6 +151,8 @@ class InstaloaderContext:
                   'Origin': 'https://www.instagram.com',
                   'Referer': 'https://www.instagram.com/',
                   'User-Agent': self.user_agent,
+                  'Upgrade-Insecure-Requests': '1',
+                  'accept': '*/*',
                   'X-Instagram-AJAX': '1',
                   'X-Requested-With': 'XMLHttpRequest'}
         if empty_session_only:
